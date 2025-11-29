@@ -10,7 +10,7 @@ import Experience from './components/Experience.jsx'
 export default function App() {
   return(
     <>
-    <div>
+    <div className ="card-container">
       <GeneralInfo/>
       <Education/>
       <Experience/>

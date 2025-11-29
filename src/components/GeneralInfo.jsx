@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Card from "./Card";
 
 function GeneralInfo() {
   const [editing, setEditing] = useState(false)
@@ -33,6 +34,7 @@ function GeneralInfo() {
   
 
   return (
+  <Card>
     <div>
       <h2>General Information</h2>
     {editing ? (<form onSubmit={handleSubmit}>
@@ -70,6 +72,7 @@ function GeneralInfo() {
         
       
     </div>
+  </Card>
   );
 }
 
