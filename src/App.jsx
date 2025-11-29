@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css';
 import GeneralInfo from './components/GeneralInfo.jsx';
 import Education from './components/Education.jsx'
+import Experience from './components/Experience.jsx'
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
     <div>
       <GeneralInfo/>
       <Education/>
+      <Experience/>
   
     </div>
       

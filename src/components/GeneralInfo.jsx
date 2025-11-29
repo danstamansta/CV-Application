@@ -1,6 +1,7 @@
 import {useState} from "react";
 
 function GeneralInfo() {
+  const [editing, setEditing] = useState(false)
   const [formData, setFormData] = useState({
     phoneNumber: "",
     name: "",
@@ -17,11 +18,24 @@ function GeneralInfo() {
       [name]: value,   //use the value of the variable name as the key
     });
   }
+    
+  function handleSubmit(e){
+      e.preventDefault();
+      setEditing(false);
+  }
+  
+  function handleEdit(){
+    setEditing(true);
+  }
+
+    
+
+  
 
   return (
     <div>
       <h2>General Information</h2>
-
+    {editing ? (<form onSubmit={handleSubmit}>
       <input
         name="name"
         placeholder="Full Name"
@@ -43,12 +57,18 @@ function GeneralInfo() {
         onChange={handleChange}
       />
 
-      <p>
-        <strong>Preview:</strong><br />
-        Name: {formData.name}<br />
-        Phone: {formData.phoneNumber}<br />
-        Email: {formData.email}
-      </p>
+        <button type = "submit">Submit</button>
+      </form>) :(
+        <div>
+        <p>Name: {formData.name}</p>
+        <p>Phone: {formData.phoneNumber}</p>
+        <p>Email: {formData.email}</p>
+        <button onClick = {handleEdit}>Edit</button>
+      </div>
+      ) }
+      
+        
+      
     </div>
   );
 }
