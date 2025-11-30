@@ -6,7 +6,7 @@ import CvPreview from "./CvPreview";
 
 function CvViewer() {
 
-  // ---- General Info ----
+ 
   const [generalInfoData, setGeneralInfoData] = useState({
     phoneNumber: "",
     name: "",
@@ -15,7 +15,7 @@ function CvViewer() {
   });
   const [generalInfoEditing, setGeneralInfoEditing] = useState(true);
 
-  // ---- Experience ----
+ 
   const [experienceData, setExperienceData] = useState({
     companyName: "",
     responsibilites: "",
@@ -24,7 +24,7 @@ function CvViewer() {
   });
   const [experienceEditing, setExperienceEditing] = useState(true);
 
-  // ---- Education ----
+
   const [educationData, setEducationData] = useState({
     schoolName: "",
     degreeName: "",
