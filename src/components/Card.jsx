@@ -1,4 +1,3 @@
-import "./styles/CardStyle.css";
 
 function Card({ children }) {
   return (

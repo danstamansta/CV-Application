@@ -1,78 +1,64 @@
-import {useState} from 'react';
 import Card from './Card';
 
-function Education(){
-    const [editing, setEditing] = useState(false);
-    const [formData, setFormData] = useState({
-        schoolName: "",
-        degreeName: "",
-        studyDate:"",
+function Education({ formData, setFormData, editing, setEditing }) {
 
-    });
-
-    function handleChange(e) {
+  function handleChange(e) {
     const { name, value } = e.target;
 
     setFormData({
       ...formData,
-      [name]: value,   //use the value of the variable name as the key
+      [name]: value,
     });
   }
 
-    function handleSubmit(e){
-      e.preventDefault();
-      setEditing(false);
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
+    setEditing(false);
+  }
 
-    function handleEdit(){
-      setEditing(true);
-    }
+  function handleEdit() {
+    setEditing(true);
+  }
 
   return (
     <Card>
-    <h2>Education</h2>
-    <div>
+      <h2>Education</h2>
+
       {editing ? (
-        
-          <form onSubmit={handleSubmit}>
-            <input
-              name="schoolName"
-              placeholder="School Name"
-              value={formData.schoolName}
-              onChange={handleChange}
-            />
+        <form onSubmit={handleSubmit}>
 
-            <input
-              name="degreeName"
-              placeholder="Type Of Education"
-              value={formData.degreeName}
-              onChange={handleChange}
-            />
+          <input
+            name="schoolName"
+            placeholder="School Name"
+            value={formData.schoolName}
+            onChange={handleChange}
+          />
 
-            <input
-              type="date"
-              name="studyDate"
-              value={formData.studyDate}
-              onChange={handleChange}
-            />
+          <input
+            name="degreeName"
+            placeholder="Degree Name"
+            value={formData.degreeName}
+            onChange={handleChange}
+          />
 
-            <button type="submit">Submit</button>
-          </form>
-        ) : (
+          <input
+            name="studyDate"
+            placeholder="Study Date"
+            value={formData.studyDate}
+            onChange={handleChange}
+          />
+
+          <button type="submit">Submit</button>
+        </form>
+      ) : (
+        <div>
           
-          <div>
-            <p><strong>School:</strong> {formData.schoolName}</p>
-            <p><strong>Degree:</strong> {formData.degreeName}</p>
-            <p><strong>Date:</strong> {formData.studyDate}</p>
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+      )}
 
-            <button onClick={handleEdit}>Edit</button>
-          </div>
-        )}
-      </div>
-      </Card>
-    );
-  }
-export default Education
+    </Card>
+  );
+}
 
-    
-
+export default Education;
