@@ -1,6 +1,16 @@
-import Card from "./Card";
+import useToggleState from "../hooks/useToggleState";
 
-function GeneralInfo({ formData, setFormData, editing, setEditing }) {
+import Card from "./Card";
+import Input from "../UI/Input";
+import Button from "../UI/Button";
+
+function GeneralInfo({ formData, setFormData }) {
+  const { isEditing, toggleState } = useToggleState();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    toggleState();
+  }
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -11,51 +21,40 @@ function GeneralInfo({ formData, setFormData, editing, setEditing }) {
     });
   }
 
-  function handleSubmit(e){
-    e.preventDefault();
-    setEditing(false);
-  }
-  
-  function handleEdit(){
-    setEditing(true);
-  }
-
   return (
     <Card>
       <div>
         <h2>General Information</h2>
 
-        {editing ? (
+        {isEditing ? (
           <form onSubmit={handleSubmit}>
-
-            <input
+            <Input
               name="name"
               placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
             />
 
-            <input
+            <Input
+              type="number"
               name="phoneNumber"
               placeholder="Phone Number"
               value={formData.phoneNumber}
               onChange={handleChange}
             />
 
-            <input
+            <Input
               name="email"
               placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
             />
 
-            <button type="submit">Submit</button>
-
+            <Button type="submit">Submit</Button>
           </form>
         ) : (
           <div>
-            
-            <button onClick={handleEdit}>Edit</button>
+            <Button onClick={toggleState}>Edit</Button>
           </div>
         )}
       </div>

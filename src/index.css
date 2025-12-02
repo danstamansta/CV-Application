@@ -1,6 +1,7 @@
-body{
+body {
   background: hsla(0, 0%, 24%, 0.534);
-}
+} 
+
 .cv-container {
   display: flex;
   gap: 40px;
@@ -23,54 +24,8 @@ body{
 
 
 
-
-button {
-  background-color: #4A90E2;      
-  color: white;                   
-  border: none;                   
-  padding: 8px 16px;              
-  border-radius: 6px;             
-  cursor: pointer;                
-  font-weight: 600;              
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-button:hover {
-  background-color: #357ABD;      
-}
-
-button:active {
-  background-color: #2C5AA0;     
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-}
-
-button:focus {
-  outline: 2px solid #357ABD;   
-  outline-offset: 2px;
-}
-
-
-input{
-  width: 100%;                    
-  padding: 10px 12px;             
-  font-size: 14px;                
-  border: 1px solid #ccc;         
-  border-radius: 6px;             
-  box-sizing: border-box;         
-  outline: none;                  
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background-color: #fff;
-}
-
-
 .cv-preview {
-  position: fixed;       
-  top: 316px;              
-  right: 1500px;          
-  transform: translateY(-50%);  
-
+  position: flex;   
   width: 400px;          
   max-height: 90vh;      
   padding: 30px;
@@ -98,6 +53,14 @@ input{
 .cv-preview p {
   font-size: 16px;       
   margin: 8px 0;         
+}
+
+.cv-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 

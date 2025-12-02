@@ -1,7 +1,7 @@
 import Card from "./Card";
-
-function Experience({ formData, setFormData, editing, setEditing }) {
-
+import Input from "../UI/Input";
+import Button from "../UI/Button";
+function Experience({ formData, setFormData, isEditing, setIsEditing }) {
   function handleChange(e) {
     const { name, value } = e.target;
 
@@ -13,27 +13,27 @@ function Experience({ formData, setFormData, editing, setEditing }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setEditing(false);
+    setIsEditing(false);
   }
 
   function handleEdit() {
-    setEditing(true);
+    setIsEditing(true);
   }
 
   return (
-    <Card>   
+    <Card>
       <h2>Experience</h2>
 
-      {editing ? (
+      {isEditing ? (
         <form onSubmit={handleSubmit}>
-          <input
+          <Input
             name="companyName"
             placeholder="Company Name"
             value={formData.companyName}
             onChange={handleChange}
           />
 
-          <input
+          <Input
             name="responsibilites"
             placeholder="Position Title"
             value={formData.responsibilites}
@@ -42,7 +42,7 @@ function Experience({ formData, setFormData, editing, setEditing }) {
 
           <div>
             <label>Worked from </label>
-            <input
+            <Input
               type="date"
               name="dateofEmploymentStart"
               value={formData.dateofEmploymentStart}
@@ -52,7 +52,7 @@ function Experience({ formData, setFormData, editing, setEditing }) {
             <br />
 
             <label>Until </label>
-            <input
+            <Input
               type="date"
               name="dateofEmploymentEnd"
               value={formData.dateofEmploymentEnd}
@@ -60,16 +60,14 @@ function Experience({ formData, setFormData, editing, setEditing }) {
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       ) : (
         <div>
-          
-          <button onClick={handleEdit}>Edit</button>
+          <Button onClick={handleEdit}>Edit</Button>
         </div>
       )}
-
-    </Card> 
+    </Card>
   );
 }
 
