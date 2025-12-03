@@ -1,6 +1,6 @@
 function CvPreview({ generalInfo, education, experience }) {
   return (
-    <div classname = "cv-preview-text">
+    <div className="cv-preview-text">
       <h2>General Information</h2>
       <p>Name: {generalInfo.name}</p>
       <p>Phone: {generalInfo.phoneNumber}</p>

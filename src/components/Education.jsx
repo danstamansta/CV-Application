@@ -1,10 +1,13 @@
-import Card from './Card';
+import useToggleState from "../hooks/useToggleState";
+import Card from "./Card";
+import Input from "../UI/Input";
+import Button from "../UI/Button";
 
-function Education({ formData, setFormData, editing, setEditing }) {
-
+function Education({ formData, setFormData}) {
+  const { isEditing, toggleState } = useToggleState();
   function handleChange(e) {
-    const { name, value } = e.target;
-
+    const {name,value} = e.target;
+    
     setFormData({
       ...formData,
       [name]: value,
@@ -13,50 +16,46 @@ function Education({ formData, setFormData, editing, setEditing }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setEditing(false);
+    toggleState();
   }
 
-  function handleEdit() {
-    setEditing(true);
-  }
+ 
 
   return (
     <Card>
       <h2>Education</h2>
 
-      {editing ? (
+      {isEditing ? (
         <form onSubmit={handleSubmit}>
-
-          <input
+          <Input
             name="schoolName"
             placeholder="School Name"
             value={formData.schoolName}
             onChange={handleChange}
           />
 
-          <input
+          <Input
             name="degreeName"
             placeholder="Degree Name"
             value={formData.degreeName}
             onChange={handleChange}
           />
 
-          <input
+          <Input
+            type="date"
             name="studyDate"
             placeholder="Study Date"
             value={formData.studyDate}
             onChange={handleChange}
           />
 
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       ) : (
         <div>
-          
-          <button onClick={handleEdit}>Edit</button>
+          <Button onClick={toggleState}>Edit</Button>
         </div>
       )}
-
     </Card>
   );
 }
